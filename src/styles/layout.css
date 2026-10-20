@@ -1,0 +1,97 @@
+/* ===== Page Layout ===== */
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-body {
+  display: flex;
+  flex: 1;
+  padding: 32px 18px;
+  gap: 32px;
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Left sidebar - patient list */
+.sidebar {
+  width: var(--sidebar-width);
+  flex-shrink: 0;
+}
+
+/* Center content */
+.main-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Right panel - patient profile */
+.right-panel {
+  width: var(--right-panel-width);
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* ===== Responsive ===== */
+
+/* Laptop ~1280px */
+@media (max-width: 1380px) {
+  .app-body {
+    padding: 24px 14px;
+    gap: 24px;
+  }
+  .sidebar {
+    width: 270px;
+  }
+  .right-panel {
+    width: 300px;
+  }
+}
+
+/* Tablet ~768px */
+@media (max-width: 1024px) {
+  .app-body {
+    flex-wrap: wrap;
+    padding: 20px 12px;
+    gap: 20px;
+  }
+  .sidebar {
+    width: 100%;
+    order: -1;
+  }
+  .main-content {
+    width: 100%;
+    flex: 1 1 100%;
+  }
+  .right-panel {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .right-panel > * {
+    flex: 1;
+    min-width: 280px;
+  }
+}
+
+/* Mobile ~375px */
+@media (max-width: 768px) {
+  .app-body {
+    padding: 16px 10px;
+    gap: 16px;
+  }
+  .right-panel {
+    flex-direction: column;
+  }
+  .right-panel > * {
+    min-width: unset;
+  }
+}
